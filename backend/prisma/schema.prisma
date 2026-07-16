@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+enum AirCraftType {
+  ATR
+  AIRBUS_320
+  BOEING_737_MAX
+}
+
+model Voucher {
+  id            Int      @id @default(autoincrement())
+  crewName      String   @map("crew_name")
+  crewId        String   @map("crew_id")
+  flightNumber  String   @map("flight_number")
+  flightDate    String   @map("flight_date")
+  aircraftType  AirCraftType
+  seat1         String
+  seat2         String
+  seat3         String
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  @@unique([flightNumber, flightDate])
+  @@map("vouchers")
+} 
