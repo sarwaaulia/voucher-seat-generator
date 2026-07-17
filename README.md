@@ -9,6 +9,7 @@ A web application for an airline voucher promotion campaign. Crew members enter 
 - Frontend: React + Tailwind CSS + Axios
 
 ## Project Structure
+```bash
 voucher-seat-generator/
 ├── backend/
 │   ├── prisma/
@@ -45,7 +46,7 @@ voucher-seat-generator/
     │   ├── index.css
     │   └── main.tsx
     └── .gitignore
-
+```
 ## Core Features
 - [x] Crew input form: crewName, crewID, flightNumber, flightDate, Aircraft Type (dropdown: ATR / Airbus 320 / Boeing 737 Max).
 - [x] Duplicate check: Before creating a new voucher, the system calls `POST /api/check` to ensure a voucher does not already exist for that specific flight and date.
