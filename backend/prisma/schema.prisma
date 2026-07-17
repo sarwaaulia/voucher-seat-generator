@@ -4,15 +4,15 @@
 // Get a free hosted Postgres database in seconds: `npx create-db`
 
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "sqlite"
+  url      = env("DATABASE_URL")
 }
 
-enum AirCraftType {
+enum AircraftType {
   ATR
   AIRBUS_320
   BOEING_737_MAX
@@ -24,7 +24,7 @@ model Voucher {
   crewId        String   @map("crew_id")
   flightNumber  String   @map("flight_number")
   flightDate    String   @map("flight_date")
-  aircraftType  AirCraftType
+  aircraftType  AircraftType
   seat1         String
   seat2         String
   seat3         String
